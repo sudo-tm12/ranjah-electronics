@@ -946,288 +946,210 @@
          RESPONSIVE BREAKPOINTS
          ═══════════════════════════════════════════════ */
 
-      /* ── Shared max-width wrapper ── */
-      .page-wrap {
-        width: 100%;
-        max-width: 1280px;
-        margin: 0 auto;
-      }
-
       /* ─────────────────────────────────────────────
          TABLET  ≥ 640px
          ───────────────────────────────────────────── */
       @media (min-width: 640px) {
-        /* Header: collapse to single row */
-        .header-inner-wrap {
-          max-width: 1280px;
+        body { padding-bottom: 72px; }
+
+        /* Header: collapse to one row, search goes inline */
+        .header-top {
+          padding: 12px 24px;
+          max-width: 1200px;
           margin: 0 auto;
         }
-
-        .header-top {
-          padding: 12px 20px 12px;
-        }
-
-        .header-search {
-          display: none; /* search moves inline on tablet+ */
-        }
-
-        .header-top .search-inline {
+        .header-search { display: none; }
+        .search-inline {
           display: flex !important;
           flex: 1;
+          max-width: 480px;
           margin: 0 16px;
           height: 40px;
           border-radius: 6px;
           overflow: hidden;
           background: var(--white);
-          box-shadow: 0 1px 4px rgba(0,0,0,.12);
+          box-shadow: 0 1px 4px rgba(0,0,0,.15);
         }
-
-        .header-top .search-inline input {
+        .search-inline input {
           flex: 1;
           border: none;
           outline: none;
           padding: 0 14px;
-          font-size: 14px;
+          font-size: 13px;
           color: var(--gray-dark);
           font-family: inherit;
           min-width: 0;
         }
-
-        .header-top .search-inline input::placeholder {
-          color: #adb5bd;
-          font-size: 13px;
-        }
-
-        .header-top .search-inline button {
-          width: 48px;
+        .search-inline input::placeholder { color: #adb5bd; }
+        .search-inline button {
+          width: 44px;
           background: var(--orange);
           border: none;
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
+          flex-shrink: 0;
         }
-
-        .header-top .search-inline button .material-symbols-outlined {
+        .search-inline button .material-symbols-outlined {
           font-size: 20px;
           color: var(--white);
         }
 
-        .cat-nav {
-          padding: 10px 20px;
-          max-width: 1280px;
-          margin: 0 auto;
-        }
+        .cat-nav { padding: 10px 24px; max-width: 1200px; margin: 0 auto; }
 
         /* Hero */
-        .hero {
-          margin: 12px 20px;
-          min-height: 200px;
-        }
-
+        .hero { margin: 12px 24px; min-height: 200px; border-radius: 10px; }
         .hero-heading { font-size: 28px; }
 
         /* Section headers */
-        .sec-hd {
-          padding: 16px 20px 10px;
-        }
+        .sec-hd { padding: 16px 24px 10px; max-width: 1200px; margin: 0 auto; }
+        .deal-timer { padding: 8px 24px; }
 
-        /* Deal strip — show more cards */
-        .pcard { width: 180px; }
+        /* Deal strip: wider cards, still scrollable */
+        .h-strip { padding: 0; max-width: 1200px; margin: 0 auto; }
+        .pcard { width: 185px; }
 
-        /* Promo tiles — stop scrolling, wrap */
+        /* Promo tiles: wrap into a proper row */
         .promo-row {
           flex-wrap: wrap;
-          padding: 12px 20px;
           overflow-x: visible;
+          padding: 8px 24px;
+          gap: 10px;
+          max-width: 1200px;
+          margin: 0 auto;
         }
+        .promo-tile { flex: 1; min-width: 170px; width: auto; }
 
-        .promo-tile {
-          flex: 1;
-          min-width: 180px;
-        }
-
-        /* Product grid — 3 columns */
+        /* Popular products: 3 cols */
         .prod-grid {
           grid-template-columns: repeat(3, 1fr);
-          padding: 12px 20px;
           gap: 10px;
+          padding: 8px 24px;
+          max-width: 1200px;
+          margin: 0 auto;
         }
 
-        /* Trust — 4 across */
+        /* Trust: 4 across */
         .trust-row {
           grid-template-columns: repeat(4, 1fr);
-          padding: 12px 20px;
+          padding: 8px 24px;
+          max-width: 1200px;
+          margin: 0 auto;
         }
 
-        /* Contact */
-        .contact-card {
-          margin: 12px 20px;
-        }
+        .contact-card { margin: 8px 24px; }
+        .addr-card    { margin: 8px 24px; }
 
-        /* Address */
-        .addr-card {
-          margin: 12px 20px;
-        }
-
-        /* Footer */
-        footer {
-          padding: 24px 20px 20px;
-        }
-
-        /* Bottom nav stays visible on tablet */
-        .bottom-nav {
-          padding: 0 20px;
-        }
-
-        body {
-          padding-bottom: 72px;
-        }
+        footer { padding: 24px 24px 20px; }
       }
 
       /* ─────────────────────────────────────────────
          DESKTOP  ≥ 1024px
          ───────────────────────────────────────────── */
       @media (min-width: 1024px) {
-        body {
-          padding-bottom: 0; /* no bottom nav on desktop */
-        }
+        body { padding-bottom: 0; }
 
         /* Hide mobile bottom nav */
         .bottom-nav { display: none; }
 
-        /* Header single row, full desktop width */
+        /* Header */
         .header-top {
-          padding: 14px 40px;
-          max-width: 1280px;
+          padding: 14px 48px;
+          max-width: 1200px;
           margin: 0 auto;
         }
+        .search-inline { max-width: 560px; margin: 0 24px; }
+        .cat-nav { padding: 10px 48px; max-width: 1200px; margin: 0 auto; }
+        .cat-btn { padding: 6px 16px; font-size: 13px; }
 
-        .cat-nav {
-          padding: 10px 40px;
-          max-width: 1280px;
-          margin: 0 auto;
-          gap: 8px;
-        }
-
-        .cat-btn {
-          padding: 6px 16px;
-          font-size: 13px;
-        }
-
-        /* Hero full-width, taller */
+        /* Hero: taller, properly padded */
         .hero {
-          margin: 16px 40px;
-          min-height: 240px;
+          margin: 16px 48px;
+          min-height: 250px;
           border-radius: 12px;
+          max-width: 1104px; /* 1200 - 2*48 */
+          margin-left: max(48px, calc((100% - 1200px) / 2 + 48px));
+          margin-right: max(48px, calc((100% - 1200px) / 2 + 48px));
         }
-
-        .hero-heading { font-size: 36px; }
-        .hero-body { padding: 32px 40px; }
-
-        .hero-visual {
-          width: 200px;
-        }
+        .hero-heading { font-size: 34px; }
+        .hero-body { padding: 32px 48px; }
+        .hero-visual { width: 220px; }
 
         /* Section headers */
-        .sec-hd {
-          padding: 20px 40px 12px;
-          max-width: 1280px;
-          margin: 0 auto;
-        }
+        .sec-hd  { padding: 20px 48px 12px; }
+        .deal-timer { padding: 9px 48px; }
 
-        /* Deal timer */
-        .deal-timer {
-          padding: 8px 40px;
-        }
-
-        /* Deal strip — wider cards */
+        /* Deal strip → proper 5-column grid, no scrolling */
         .h-strip {
-          padding: 0 40px;
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          overflow: visible;
           gap: 12px;
-          overflow-x: visible;
-          flex-wrap: wrap;
+          padding: 12px 48px;
+          max-width: 1200px;
+          margin: 0 auto;
+          background: transparent;
+          border-bottom: none;
         }
-
-        .pcard {
-          width: calc(20% - 12px);
-          min-width: 160px;
+        .h-strip .pcard {
+          width: auto;
           border-right: none;
           border-radius: 8px;
-          box-shadow: 0 1px 3px rgba(0,0,0,.07);
-          margin-bottom: 0;
+          box-shadow: 0 1px 4px rgba(0,0,0,.08);
+          background: var(--white);
         }
 
-        /* Promo tiles */
+        /* Promo tiles: 3 equal columns */
         .promo-row {
-          padding: 12px 40px;
-          gap: 12px;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          flex-wrap: unset;
+          overflow: visible;
+          gap: 14px;
+          padding: 8px 48px;
+          max-width: 1200px;
+          margin: 0 auto;
         }
+        .promo-tile { width: auto; min-width: 0; flex: unset; }
 
-        .promo-tile {
-          width: auto;
-          flex: 1;
-        }
-
-        /* Product grid — 4 columns on desktop */
+        /* Popular products: 4 columns */
         .prod-grid {
           grid-template-columns: repeat(4, 1fr);
-          padding: 12px 40px;
-          gap: 12px;
-          max-width: 1280px;
+          gap: 14px;
+          padding: 12px 48px;
+          max-width: 1200px;
           margin: 0 auto;
         }
 
-        /* Trust row */
-        .trust-row {
-          padding: 12px 40px;
-          max-width: 1280px;
-          margin: 0 auto;
-        }
+        /* Trust: 4 columns */
+        .trust-row { padding: 12px 48px; max-width: 1200px; margin: 0 auto; }
 
-        /* Contact — two-column layout */
-        .contact-card {
-          margin: 12px 40px;
-          max-width: 1280px;
+        /* Contact + Address: side by side */
+        .contact-address-wrap {
+          display: flex;
+          gap: 16px;
+          padding: 0 48px;
+          max-width: 1200px;
+          margin: 8px auto;
         }
-
-        /* Address card */
-        .addr-card {
-          margin: 12px 40px;
-          max-width: 1280px;
+        .contact-address-wrap .contact-card,
+        .contact-address-wrap .addr-card {
+          flex: 1;
+          margin: 0;
         }
+        .contact-address-wrap .addr-card { max-width: 380px; }
 
-        /* Section gaps */
         .sec-gap { height: 12px; }
 
-        footer {
-          padding: 32px 40px 24px;
-          max-width: none;
-        }
-
-        footer > * {
-          max-width: 1280px;
-          margin-left: auto;
-          margin-right: auto;
-        }
+        footer { padding: 32px 48px 28px; max-width: 1200px; margin: 8px auto 0; border-radius: 12px 12px 0 0; }
       }
 
       /* ─────────────────────────────────────────────
-         WIDE  ≥ 1280px  — constrain content width
+         WIDE  ≥ 1280px
          ───────────────────────────────────────────── */
       @media (min-width: 1280px) {
-        .prod-grid {
-          grid-template-columns: repeat(5, 1fr);
-        }
-
-        .h-strip {
-          flex-wrap: wrap;
-          gap: 12px;
-        }
-
-        .pcard {
-          width: calc(20% - 12px);
-        }
+        .prod-grid { grid-template-columns: repeat(5, 1fr); }
       }
     </style>
   </head>
@@ -1575,8 +1497,9 @@
       </div>
     </div>
 
-    <!-- CONTACT -->
+    <!-- CONTACT + ADDRESS (side-by-side on desktop via .contact-address-wrap) -->
     <div class="sec-gap"></div>
+    <div class="contact-address-wrap">
     <div class="contact-card">
       <div class="contact-head">
         <p class="ch-title">Contact Ali</p>
@@ -1649,7 +1572,7 @@
     </div>
 
     <!-- STORE ADDRESS -->
-    <div class="addr-card">
+    <div class="addr-card" style="margin-top:0;">
       <div class="addr-map-placeholder">
         <span
           class="material-symbols-outlined"
@@ -1672,6 +1595,8 @@
         </a>
       </div>
     </div>
+
+    </div><!-- end .contact-address-wrap -->
 
     <!-- FOOTER -->
     <div class="sec-gap"></div>
