@@ -1,0 +1,1467 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ranjah Electronics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --blue:        #0a3d8f;
+        --blue-mid:    #1155cc;
+        --blue-dark:   #072d6e;
+        --blue-bg:     #e8f0fe;
+        --brand-green: #1a9e3f;
+        --orange:      #ff6900;
+        --red:         #cc0000;
+        --green:       #1a7a4a;
+        --gray-bg:     #f4f5f7;
+        --gray-line:   #e4e6ea;
+        --gray-mid:    #6b7280;
+        --gray-dark:   #111827;
+        --white:       #ffffff;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: var(--gray-bg);
+        color: var(--gray-dark);
+        font-size: 14px;
+        line-height: 1.5;
+        padding-bottom: 64px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ─── HEADER ─────────────────────────────────── */
+      .header {
+        background: var(--blue);
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+      }
+
+      /* row 1: logo + action icons */
+      .header-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 14px 8px;
+      }
+
+      /* row 2: full-width search */
+      .header-search {
+        padding: 0 12px 10px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        flex-shrink: 0;
+        text-decoration: none;
+      }
+
+      .logo-mark {
+        width: 36px;
+        height: 36px;
+        background: var(--white);
+        border-radius: 50%;
+        border: 2px solid rgba(255,255,255,.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        position: relative;
+      }
+
+      /* inner blue circle matching the card logo */
+      .logo-mark::after {
+        content: '';
+        position: absolute;
+        inset: 3px;
+        border-radius: 50%;
+        background: var(--blue-mid);
+      }
+
+      .logo-mark span {
+        font-size: 10px;
+        font-weight: 900;
+        color: var(--white);
+        letter-spacing: -0.5px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .logo-copy {
+        line-height: 1;
+      }
+
+      .logo-name {
+        font-size: 13px;
+        font-weight: 800;
+        color: #5dde7a;          /* brand green from card */
+        letter-spacing: 0.2px;
+        display: block;
+        text-transform: uppercase;
+      }
+
+      .logo-tagline {
+        font-size: 9px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.55);
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        display: block;
+        margin-top: 2px;
+      }
+
+      .search-wrap {
+        display: flex;
+        height: 42px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--white);
+        width: 100%;
+        box-shadow: 0 1px 4px rgba(0,0,0,.12);
+      }
+
+      .search-wrap input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 0 14px;
+        font-size: 14px;
+        color: var(--gray-dark);
+        font-family: inherit;
+        min-width: 0;
+      }
+
+      .search-wrap input::placeholder {
+        color: #adb5bd;
+        font-size: 13px;
+      }
+
+      .search-btn {
+        width: 48px;
+        background: var(--orange);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .search-btn .material-symbols-outlined {
+        font-size: 20px;
+        color: var(--white);
+      }
+
+      .header-actions {
+        display: flex;
+        gap: 2px;
+        flex-shrink: 0;
+      }
+
+      .hbtn {
+        width: 36px;
+        height: 36px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.12);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        text-decoration: none;
+      }
+
+      .hbtn .material-symbols-outlined {
+        font-size: 20px;
+        color: var(--white);
+      }
+
+      .cart-dot {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 8px;
+        height: 8px;
+        background: var(--orange);
+        border-radius: 50%;
+        border: 1.5px solid var(--blue);
+      }
+
+      /* ─── CATEGORY NAV ──────────────────────────── */
+      .cat-nav {
+        background: var(--white);
+        border-bottom: 1px solid var(--gray-line);
+        display: flex;
+        gap: 6px;
+        padding: 10px 12px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .cat-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .cat-btn {
+        flex-shrink: 0;
+        border: 1.5px solid var(--gray-line);
+        background: var(--white);
+        border-radius: 4px;
+        padding: 5px 12px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #374151;
+        cursor: pointer;
+        white-space: nowrap;
+        font-family: inherit;
+        transition:
+          border-color 0.15s,
+          background 0.15s,
+          color 0.15s;
+      }
+
+      .cat-btn.active {
+        border-color: var(--blue);
+        background: var(--blue);
+        color: var(--white);
+      }
+
+      /* ─── HERO BANNER ───────────────────────────── */
+      .hero {
+        margin: 8px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: linear-gradient(
+          115deg,
+          var(--blue-dark) 0%,
+          var(--blue) 100%
+        );
+        display: flex;
+        align-items: stretch;
+        min-height: 156px;
+      }
+
+      .hero-body {
+        flex: 1;
+        padding: 20px 16px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .hero-label {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: rgba(255, 255, 255, 0.65);
+        margin-bottom: 6px;
+      }
+
+      .hero-heading {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--white);
+        line-height: 1.2;
+        margin-bottom: 6px;
+      }
+
+      .hero-sub {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 16px;
+      }
+
+      .hero-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        background: var(--orange);
+        color: var(--white);
+        font-size: 12px;
+        font-weight: 700;
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        width: fit-content;
+      }
+
+      .hero-cta .material-symbols-outlined {
+        font-size: 14px;
+      }
+
+      .hero-visual {
+        width: 110px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.12);
+      }
+
+      .hero-visual .material-symbols-outlined {
+        font-size: 56px;
+        color: rgba(255, 255, 255, 0.25);
+      }
+
+      /* ─── SECTION HEADER ────────────────────────── */
+      .sec-hd {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 12px 10px;
+        background: var(--white);
+        border-bottom: 1px solid var(--gray-line);
+      }
+
+      .sec-hd h2 {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--gray-dark);
+      }
+
+      .sec-hd a {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--blue);
+        text-decoration: none;
+      }
+
+      /* ─── DEAL TIMER ────────────────────────────── */
+      .deal-timer {
+        background: var(--red);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+      }
+
+      .timer-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.8);
+        white-space: nowrap;
+      }
+
+      .timer-blocks {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .t-block {
+        background: rgba(0, 0, 0, 0.3);
+        color: var(--white);
+        font-size: 13px;
+        font-weight: 700;
+        border-radius: 3px;
+        padding: 2px 7px;
+        min-width: 30px;
+        text-align: center;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .t-sep {
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 1;
+      }
+
+      /* ─── HORIZONTAL PRODUCT STRIP ──────────────── */
+      .h-strip {
+        background: var(--white);
+        display: flex;
+        overflow-x: auto;
+        scrollbar-width: none;
+        border-bottom: 1px solid var(--gray-line);
+      }
+      .h-strip::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* ─── PRODUCT CARD ──────────────────────────── */
+      .pcard {
+        flex-shrink: 0;
+        width: 152px;
+        padding: 12px;
+        border-right: 1px solid var(--gray-line);
+        background: var(--white);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+
+      .pcard:last-child {
+        border-right: none;
+      }
+
+      .pcard-img {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 6px;
+        background: #f8f9fa;
+        overflow: hidden;
+        margin-bottom: 8px;
+        flex-shrink: 0;
+      }
+
+      .pcard-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        padding: 6px;
+      }
+
+      .badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 9px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        padding: 2px 6px;
+        border-radius: 3px;
+        color: var(--white);
+        line-height: 1.4;
+      }
+
+      .badge-sale {
+        background: var(--red);
+      }
+      .badge-new {
+        background: var(--green);
+      }
+      .badge-hot {
+        background: var(--orange);
+      }
+
+      .pcard-name {
+        font-size: 12px;
+        font-weight: 500;
+        color: #374151;
+        line-height: 1.4;
+        margin-bottom: 6px;
+        flex: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .pcard-price {
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--gray-dark);
+        line-height: 1;
+        margin-bottom: 2px;
+      }
+
+      .pcard-was {
+        font-size: 11px;
+        color: var(--gray-mid);
+        text-decoration: line-through;
+        margin-bottom: 1px;
+      }
+
+      .pcard-save {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--red);
+        margin-bottom: 8px;
+      }
+
+      .add-btn {
+        width: 100%;
+        background: var(--blue);
+        color: var(--white);
+        border: none;
+        border-radius: 4px;
+        padding: 7px 0;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: inherit;
+        letter-spacing: 0.2px;
+        transition: background 0.15s;
+      }
+
+      .add-btn:hover {
+        background: var(--blue-dark);
+      }
+
+      /* ─── PROMO TILES ───────────────────────────── */
+      .promo-row {
+        display: flex;
+        gap: 8px;
+        padding: 8px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .promo-row::-webkit-scrollbar {
+        display: none;
+      }
+
+      .promo-tile {
+        flex-shrink: 0;
+        width: 195px;
+        border-radius: 8px;
+        padding: 16px;
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+        display: block;
+      }
+
+      .promo-tile .pt-label {
+        font-size: 9px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        opacity: 0.65;
+        margin-bottom: 5px;
+      }
+
+      .promo-tile .pt-heading {
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 12px;
+      }
+
+      .promo-tile .pt-cta {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 700;
+        background: rgba(0, 0, 0, 0.25);
+        padding: 5px 12px;
+        border-radius: 3px;
+      }
+
+      .promo-tile .pt-icon {
+        position: absolute;
+        right: -8px;
+        bottom: -8px;
+        opacity: 0.15;
+      }
+
+      .promo-tile .pt-icon .material-symbols-outlined {
+        font-size: 80px;
+        color: var(--white);
+      }
+
+      .pt-blue {
+        background: linear-gradient(135deg, #003d99, #0052cc);
+      }
+      .pt-red {
+        background: linear-gradient(135deg, #991b1b, #dc2626);
+      }
+      .pt-green {
+        background: linear-gradient(135deg, #065f46, #059669);
+      }
+
+      /* ─── 2-COL PRODUCT GRID ─────────────────────── */
+      .prod-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 8px;
+      }
+
+      .prod-grid .pcard {
+        width: 100%;
+        border-right: none;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+      }
+
+      /* ─── CONTACT SECTION ────────────────────────── */
+      .contact-card {
+        margin: 8px;
+        background: var(--white);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--gray-line);
+      }
+
+      .contact-head {
+        background: var(--blue);
+        padding: 13px 14px;
+      }
+
+      .contact-head .ch-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .contact-head .ch-sub {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 2px;
+      }
+
+      .contact-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 13px 14px;
+        border-bottom: 1px solid var(--gray-line);
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .contact-row:last-child {
+        border-bottom: none;
+      }
+
+      .ci {
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .ci .material-symbols-outlined {
+        font-size: 20px;
+      }
+
+      .cr-label {
+        font-size: 10px;
+        font-weight: 500;
+        color: var(--gray-mid);
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+      }
+
+      .cr-value {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--gray-dark);
+        margin-top: 1px;
+      }
+
+      .cr-chevron .material-symbols-outlined {
+        font-size: 18px;
+        color: #d1d5db;
+        margin-left: auto;
+      }
+
+      /* ─── TRUST ROW ──────────────────────────────── */
+      .trust-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 8px;
+      }
+
+      .trust-card {
+        background: var(--white);
+        border-radius: 8px;
+        padding: 14px;
+        border: 1px solid var(--gray-line);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .trust-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .trust-icon .material-symbols-outlined {
+        font-size: 18px;
+      }
+
+      .trust-title {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--gray-dark);
+      }
+
+      .trust-desc {
+        font-size: 11px;
+        color: var(--gray-mid);
+        line-height: 1.4;
+      }
+
+      /* ─── ADDRESS CARD ───────────────────────────── */
+      .addr-card {
+        margin: 8px;
+        background: var(--white);
+        border-radius: 8px;
+        border: 1px solid var(--gray-line);
+        overflow: hidden;
+      }
+
+      .addr-map-placeholder {
+        height: 76px;
+        background: var(--blue-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border-bottom: 1px solid var(--gray-line);
+      }
+
+      .addr-map-placeholder .material-symbols-outlined {
+        font-size: 26px;
+        color: var(--blue);
+      }
+
+      .addr-map-placeholder span:last-child {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--blue);
+      }
+
+      .addr-body {
+        padding: 14px;
+      }
+
+      .addr-name {
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 3px;
+      }
+
+      .addr-line {
+        font-size: 12px;
+        color: var(--gray-mid);
+        line-height: 1.5;
+      }
+
+      .dir-btn {
+        margin-top: 12px;
+        width: 100%;
+        background: var(--blue);
+        color: var(--white);
+        border: none;
+        border-radius: 4px;
+        padding: 11px;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        text-decoration: none;
+        font-family: inherit;
+      }
+
+      .dir-btn .material-symbols-outlined {
+        font-size: 16px;
+      }
+
+      /* ─── FOOTER ─────────────────────────────────── */
+      footer {
+        background: #1a1a2e;
+        color: var(--white);
+        padding: 20px 14px 14px;
+        margin-top: 8px;
+      }
+
+      .foot-logo {
+        font-size: 14px;
+        font-weight: 800;
+        margin-bottom: 3px;
+      }
+      .foot-tagline {
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.45);
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        margin-bottom: 10px;
+      }
+      .foot-desc {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.6;
+        margin-bottom: 14px;
+      }
+      .foot-divider {
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        margin-bottom: 12px;
+      }
+      .foot-copy {
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.3);
+        text-align: center;
+      }
+
+      /* ─── BOTTOM NAV ─────────────────────────────── */
+      .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        background: var(--white);
+        border-top: 1px solid var(--gray-line);
+        box-shadow: 0 -4px 20px rgba(0,0,0,.07);
+        border-radius: 16px 16px 0 0;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        padding: 0 8px;
+      }
+
+      .bnav-btn {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: #b0b7c3;
+        font-family: inherit;
+        font-size: 9px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .4px;
+        text-decoration: none;
+        padding: 6px 4px;
+        border-radius: 10px;
+        transition: color .15s;
+        position: relative;
+      }
+
+      .bnav-btn .material-symbols-outlined {
+        font-size: 23px;
+      }
+
+      .bnav-btn.active {
+        color: var(--blue);
+      }
+
+      .bnav-btn.active .material-symbols-outlined {
+        font-variation-settings: "FILL" 1;
+      }
+
+      /* pill indicator on active tab */
+      .bnav-btn.active::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 28px;
+        height: 3px;
+        background: var(--blue);
+        border-radius: 0 0 4px 4px;
+      }
+
+      /* centre WhatsApp action button */
+      .bnav-wa {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 4px;
+        text-decoration: none;
+        padding-bottom: 4px;
+      }
+
+      .bnav-wa-circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #25d366;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: -26px;
+        box-shadow: 0 4px 16px rgba(37,211,102,.45), 0 0 0 4px var(--white);
+      }
+
+      .bnav-wa-circle svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .bnav-wa-label {
+        font-size: 9px;
+        font-weight: 700;
+        color: #25d366;
+        text-transform: uppercase;
+        letter-spacing: .4px;
+      }
+
+      /* ─── SECTION SPACER ─────────────────────────── */
+      .sec-gap {
+        height: 8px;
+        background: var(--gray-bg);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+
+      <!-- Row 1: Logo + Icons -->
+      <div class="header-top">
+        <a href="#" class="logo">
+          <div class="logo-mark"><span>RE</span></div>
+          <div class="logo-copy">
+            <span class="logo-name">Ranjah Electronics</span>
+            <span class="logo-tagline">Cell Phone &amp; Car Sound</span>
+          </div>
+        </a>
+        <div class="header-actions">
+          <a href="tel:0748072093" class="hbtn" aria-label="Call">
+            <span class="material-symbols-outlined">call</span>
+          </a>
+          <button class="hbtn" aria-label="Cart">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            <span class="cart-dot"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Row 2: Search bar (full width) -->
+      <div class="header-search">
+        <div class="search-wrap">
+          <input type="text" placeholder="Search phones, speakers, accessories…"/>
+          <button class="search-btn" aria-label="Search">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+        </div>
+      </div>
+
+      <nav class="cat-nav">
+        <button class="cat-btn active">All</button>
+        <button class="cat-btn">Cell Phones</button>
+        <button class="cat-btn">Car Audio</button>
+        <button class="cat-btn">Accessories</button>
+        <button class="cat-btn">Computers</button>
+        <button class="cat-btn">Televisions</button>
+        <button class="cat-btn">Chargers</button>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-body">
+        <p class="hero-label">We Serve You Better</p>
+        <h1 class="hero-heading">Top Deals on<br />Electronics</h1>
+        <p class="hero-sub">Cell phones · Car audio · Accessories</p>
+        <a href="tel:0748072093" class="hero-cta">
+          Shop Now
+          <span class="material-symbols-outlined">chevron_right</span>
+        </a>
+      </div>
+      <div class="hero-visual">
+        <img
+          src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&q=80"
+          alt="Smartphone"
+          style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6"
+        />
+      </div>
+    </div>
+
+    <!-- DAILY DEALS -->
+    <div class="sec-gap"></div>
+    <div class="sec-hd">
+      <h2>Daily Deals</h2>
+      <a href="#">View All</a>
+    </div>
+    <div class="deal-timer">
+      <span class="timer-label">Ends in</span>
+      <div class="timer-blocks">
+        <span class="t-block" id="th">05</span>
+        <span class="t-sep">:</span>
+        <span class="t-block" id="tm">47</span>
+        <span class="t-sep">:</span>
+        <span class="t-block" id="ts">22</span>
+      </div>
+    </div>
+    <div class="h-strip">
+      <div class="pcard">
+        <span class="badge badge-sale">25% OFF</span>
+        <div class="pcard-img">
+          <img
+            src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80"
+            alt="Samsung Galaxy A15 5G"
+            loading="lazy"
+          />
+        </div>
+        <p class="pcard-name">Samsung Galaxy A15 5G — 128GB</p>
+        <p class="pcard-price">R 2,999</p>
+        <p class="pcard-was">R 3,999</p>
+        <p class="pcard-save">Save R 1,000</p>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="pcard">
+        <span class="badge badge-sale">30% OFF</span>
+        <div class="pcard-img">
+          <img
+            src="https://images.unsplash.com/photo-1545454675-3531b543be5d?w=400&q=80"
+            alt="Pioneer Car Speakers"
+            loading="lazy"
+          />
+        </div>
+        <p class="pcard-name">Pioneer 6.5" Car Speakers (Pair)</p>
+        <p class="pcard-price">R 1,299</p>
+        <p class="pcard-was">R 1,849</p>
+        <p class="pcard-save">Save R 550</p>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="pcard">
+        <span class="badge badge-new">New</span>
+        <div class="pcard-img">
+          <img
+            src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&q=80"
+            alt="Wireless Bluetooth Earbuds"
+            loading="lazy"
+          />
+        </div>
+        <p class="pcard-name">Wireless Bluetooth Earbuds</p>
+        <p class="pcard-price">R 799</p>
+        <p class="pcard-was">R 1,099</p>
+        <p class="pcard-save">Save R 300</p>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="pcard">
+        <span class="badge badge-sale">20% OFF</span>
+        <div class="pcard-img">
+          <img
+            src="https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&q=80"
+            alt="Power Bank 20000mAh"
+            loading="lazy"
+          />
+        </div>
+        <p class="pcard-name">Power Bank 20,000mAh Fast Charge</p>
+        <p class="pcard-price">R 459</p>
+        <p class="pcard-was">R 579</p>
+        <p class="pcard-save">Save R 120</p>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="pcard">
+        <span class="badge badge-hot">Hot</span>
+        <div class="pcard-img">
+          <img
+            src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&q=80"
+            alt="USB-C Cable"
+            loading="lazy"
+          />
+        </div>
+        <p class="pcard-name">USB-C to Lightning Cable 2m</p>
+        <p class="pcard-price">R 149</p>
+        <p class="pcard-was">R 199</p>
+        <p class="pcard-save">Save R 50</p>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- PROMO TILES -->
+    <div class="sec-gap"></div>
+    <div class="promo-row">
+      <a href="tel:0748072093" class="promo-tile pt-blue">
+        <p class="pt-label">Car Audio</p>
+        <p class="pt-heading">Up to<br />40% Off</p>
+        <span class="pt-cta">Shop Now</span>
+        <div class="pt-icon">
+          <span class="material-symbols-outlined">speaker</span>
+        </div>
+      </a>
+      <a href="tel:0748072093" class="promo-tile pt-red">
+        <p class="pt-label">Smartphones</p>
+        <p class="pt-heading">Latest<br />Models In</p>
+        <span class="pt-cta">Enquire</span>
+        <div class="pt-icon">
+          <span class="material-symbols-outlined">smartphone</span>
+        </div>
+      </a>
+      <a href="tel:0748072093" class="promo-tile pt-green">
+        <p class="pt-label">Accessories</p>
+        <p class="pt-heading">Free Gift<br />on R500+</p>
+        <span class="pt-cta">View Deals</span>
+        <div class="pt-icon">
+          <span class="material-symbols-outlined">headphones</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- POPULAR PRODUCTS -->
+    <div class="sec-gap"></div>
+    <div class="sec-hd">
+      <h2>Popular Products</h2>
+      <a href="#">See All</a>
+    </div>
+    <div class="prod-grid">
+      <div class="pcard">
+        <span class="badge badge-new">New</span>
+        <div class="pcard-img">
+          <img
+            src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&q=80"
+            alt="iPhone 14"
+            loading="lazy"
+          />
+        </div>
+        <p class="pcard-name">iPhone 14 — 128GB</p>
+        <p class="pcard-price">R 12,999</p>
+        <p class="pcard-save">Best Price</p>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="pcard">
+        <span class="badge badge-sale">18% OFF</span>
+        <div class="pcard-img">
+          <img
+            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80"
+            alt="JBL Tune 510BT Headphones"
+            loading="lazy"
+          />
+        </div>
+        <p class="pcard-name">JBL Tune 510BT Headphones</p>
+        <p class="pcard-price">R 899</p>
+        <p class="pcard-was">R 1,099</p>
+        <p class="pcard-save">Save R 200</p>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="pcard">
+        <span class="badge badge-sale">22% OFF</span>
+        <div class="pcard-img">
+          <img
+            src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&q=80"
+            alt="12 inch Subwoofer"
+            loading="lazy"
+          />
+        </div>
+        <p class="pcard-name">12" Subwoofer 1200W</p>
+        <p class="pcard-price">R 1,849</p>
+        <p class="pcard-was">R 2,349</p>
+        <p class="pcard-save">Save R 500</p>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="pcard">
+        <span class="badge badge-new">New</span>
+        <div class="pcard-img">
+          <img
+            src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&q=80"
+            alt="Wireless Gaming Mouse"
+            loading="lazy"
+          />
+        </div>
+        <p class="pcard-name">Wireless Gaming Mouse</p>
+        <p class="pcard-price">R 349</p>
+        <p class="pcard-save">Free Delivery</p>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="pcard">
+        <span class="badge badge-sale">35% OFF</span>
+        <div class="pcard-img">
+          <img
+            src="https://images.unsplash.com/photo-1595044426077-d36d9236d54a?w=400&q=80"
+            alt="RGB Mechanical Keyboard"
+            loading="lazy"
+          />
+        </div>
+        <p class="pcard-name">RGB Mechanical Keyboard</p>
+        <p class="pcard-price">R 899</p>
+        <p class="pcard-was">R 1,399</p>
+        <p class="pcard-save">Save R 500</p>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="pcard">
+        <span class="badge badge-sale">10% OFF</span>
+        <div class="pcard-img">
+          <img
+            src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&q=80"
+            alt="65W GaN Fast Charger"
+            loading="lazy"
+          />
+        </div>
+        <p class="pcard-name">65W GaN Fast Charger</p>
+        <p class="pcard-price">R 269</p>
+        <p class="pcard-was">R 299</p>
+        <p class="pcard-save">Save R 30</p>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- TRUST SIGNALS -->
+    <div class="sec-gap"></div>
+    <div class="trust-row">
+      <div class="trust-card">
+        <div class="trust-icon" style="background: #eef2ff">
+          <span class="material-symbols-outlined" style="color: var(--blue)"
+            >verified</span
+          >
+        </div>
+        <div class="trust-title">Genuine Stock</div>
+        <div class="trust-desc">100% authentic, no counterfeits</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon" style="background: #fff7ed">
+          <span class="material-symbols-outlined" style="color: var(--orange)"
+            >handshake</span
+          >
+        </div>
+        <div class="trust-title">Personal Service</div>
+        <div class="trust-desc">Talk directly to Ali, no call centre</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon" style="background: #fef2f2">
+          <span class="material-symbols-outlined" style="color: var(--red)"
+            >local_offer</span
+          >
+        </div>
+        <div class="trust-title">Price Match</div>
+        <div class="trust-desc">We beat any written quote</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon" style="background: #f0fdf4">
+          <span class="material-symbols-outlined" style="color: var(--green)"
+            >build</span
+          >
+        </div>
+        <div class="trust-title">Fitting &amp; Repair</div>
+        <div class="trust-desc">On-site installation available</div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="sec-gap"></div>
+    <div class="contact-card">
+      <div class="contact-head">
+        <p class="ch-title">Contact Ali</p>
+        <p class="ch-sub">
+          Shop No. 1B, Rayton Park Plaza — Next to Post Office
+        </p>
+      </div>
+      <a href="tel:0748072093" class="contact-row">
+        <div class="ci" style="background: #eef2ff">
+          <span class="material-symbols-outlined" style="color: var(--blue)"
+            >call</span
+          >
+        </div>
+        <div>
+          <p class="cr-label">Line 1</p>
+          <p class="cr-value">074 807 2093</p>
+        </div>
+        <span class="cr-chevron"
+          ><span class="material-symbols-outlined">chevron_right</span></span
+        >
+      </a>
+      <a href="tel:0729082222" class="contact-row">
+        <div class="ci" style="background: #eef2ff">
+          <span class="material-symbols-outlined" style="color: var(--blue)"
+            >call</span
+          >
+        </div>
+        <div>
+          <p class="cr-label">Line 2</p>
+          <p class="cr-value">072 908 2222</p>
+        </div>
+        <span class="cr-chevron"
+          ><span class="material-symbols-outlined">chevron_right</span></span
+        >
+      </a>
+      <a
+        href="https://wa.me/27748072093"
+        class="contact-row"
+        style="background: #f0fdf4"
+      >
+        <div class="ci" style="background: #dcfce7">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#16a34a">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+            />
+          </svg>
+        </div>
+        <div>
+          <p class="cr-label">WhatsApp</p>
+          <p class="cr-value" style="color: #16a34a">Chat with Us</p>
+        </div>
+        <span class="cr-chevron"
+          ><span class="material-symbols-outlined">chevron_right</span></span
+        >
+      </a>
+      <a href="mailto:faisalranjah@gmail.com" class="contact-row">
+        <div class="ci" style="background: #fef9c3">
+          <span class="material-symbols-outlined" style="color: #a16207"
+            >mail</span
+          >
+        </div>
+        <div>
+          <p class="cr-label">Email</p>
+          <p class="cr-value" style="font-size: 12px">faisalranjah@gmail.com</p>
+        </div>
+        <span class="cr-chevron"
+          ><span class="material-symbols-outlined">chevron_right</span></span
+        >
+      </a>
+    </div>
+
+    <!-- STORE ADDRESS -->
+    <div class="addr-card">
+      <div class="addr-map-placeholder">
+        <span
+          class="material-symbols-outlined"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >location_on</span
+        >
+        <span>Rayton Park Plaza</span>
+      </div>
+      <div class="addr-body">
+        <p class="addr-name">Ranjah Electronics</p>
+        <p class="addr-line">
+          Shop No. 1B, Rayton Park Plaza<br />Next to Post Office
+        </p>
+        <a
+          href="https://maps.google.com/?q=Rayton+Park+Plaza+South+Africa"
+          class="dir-btn"
+        >
+          <span class="material-symbols-outlined">directions</span>
+          Get Directions
+        </a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="sec-gap"></div>
+    <footer>
+      <p class="foot-logo">Ranjah Electronics</p>
+      <p class="foot-tagline">We Serve You Better</p>
+      <p class="foot-desc">
+        Deals in cellphones &amp; all kinds of electronics &amp; also computer
+        accessories. Shop No. 1B, Rayton Park Plaza, Next to Post Office.
+      </p>
+      <hr class="foot-divider" />
+      <p class="foot-copy">
+        &copy; 2025 Ranjah Electronics. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav">
+      <button class="bnav-btn active">
+        <span class="material-symbols-outlined">home</span>
+        Home
+      </button>
+      <button class="bnav-btn">
+        <span class="material-symbols-outlined">category</span>
+        Shop
+      </button>
+
+      <!-- WhatsApp centre FAB -->
+      <a href="https://wa.me/27748072093" class="bnav-wa" aria-label="WhatsApp">
+        <div class="bnav-wa-circle">
+          <svg viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+        </div>
+        <span class="bnav-wa-label">Chat</span>
+      </a>
+
+      <button class="bnav-btn">
+        <span class="material-symbols-outlined">shopping_cart</span>
+        Cart
+      </button>
+      <button class="bnav-btn">
+        <span class="material-symbols-outlined">person</span>
+        Account
+      </button>
+    </nav>
+
+    <script>
+      // Countdown timer
+      (function () {
+        var h = document.getElementById("th");
+        var m = document.getElementById("tm");
+        var s = document.getElementById("ts");
+        function tick() {
+          var total =
+            +h.textContent * 3600 + +m.textContent * 60 + +s.textContent;
+          if (total <= 0) return;
+          total--;
+          h.textContent = String(Math.floor(total / 3600)).padStart(2, "0");
+          m.textContent = String(Math.floor((total % 3600) / 60)).padStart(
+            2,
+            "0",
+          );
+          s.textContent = String(total % 60).padStart(2, "0");
+        }
+        setInterval(tick, 1000);
+      })();
+
+      // Category pill toggle
+      document.querySelectorAll(".cat-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          document.querySelectorAll(".cat-btn").forEach(function (b) {
+            b.classList.remove("active");
+          });
+          btn.classList.add("active");
+        });
+      });
+
+      // Bottom nav toggle
+      document.querySelectorAll(".bnav-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          document.querySelectorAll(".bnav-btn").forEach(function (b) {
+            b.classList.remove("active");
+          });
+          btn.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
